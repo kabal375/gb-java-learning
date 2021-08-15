@@ -11,12 +11,26 @@ public class wordsGame {
         String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry",
                 "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut",
                 "pear", "pepper", "pineapple", "pumpkin", "potato"};
+        playGame(words);
 
+    }
+
+    public static void playGame(String[] words) {
         String wordAI = pickRandomWord(words);
-        System.out.println(wordAI);
-        String wordUser = userTry();
-        compareAndResults(wordAI, wordUser);
+        String wordUser = "";
+        System.out.println("List of words:");
+        for (String word : words) {
+            System.out.print(word + ", ");
+        }
+        System.out.println();
+        System.out.println();
 
+        while (!checkForWin(wordAI, wordUser)) {
+            wordUser = userTry();
+            compareAndResults(wordAI, wordUser);
+        }
+        System.out.println("Congratulations!");
+        System.out.println("You won!");
     }
 
     public static String pickRandomWord(String[] arr) {
@@ -27,7 +41,7 @@ public class wordsGame {
 
     public static String userTry() {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Enter a word:");
+        System.out.println("Enter your guess:");
 
         return userInput.nextLine().trim();
 
