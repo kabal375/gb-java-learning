@@ -18,6 +18,8 @@ public class wordsGame {
     public static void playGame(String[] words) {
         String wordAI = pickRandomWord(words);
         String wordUser = "";
+        System.out.println("I made a word from list. Can you guess it? I'll help while you try...");
+        System.out.println();
         System.out.println("List of words:");
         for (String word : words) {
             System.out.print(word + ", ");
