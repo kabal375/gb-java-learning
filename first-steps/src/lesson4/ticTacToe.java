@@ -107,7 +107,6 @@ public class ticTacToe {
          }
         return false;
 
-
     }
 
 
@@ -131,9 +130,7 @@ public class ticTacToe {
             rDiag = rDiag && (map[i][SIZE - i - 1] == symb); // upper right to lower left diag
 
         }
-        if (lDiag || rDiag) return true;
-
-        return false;
+        return lDiag || rDiag;
     }
 
     public static boolean endOfTurns(char[][] map){
