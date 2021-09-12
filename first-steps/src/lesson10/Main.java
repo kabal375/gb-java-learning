@@ -22,20 +22,27 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        String[] words = {
-//                "test", "root", "gas", "gun", "moreover", "task", "Lord", "crown", "dream",
-//                "shadow", "root", "flame", "dream", "night", "light", "dream", "cost",
-//                "falcon", "light", "shadow", "dream", "drama", "war", "tree", "pain"
-//        };
-//
-//        WordsCalculator wc = new WordsCalculator(words);
-//
-//        System.out.println("There are " + wc.getUniqueWordsNumber() + " unique words:");
-//        wc.printUniqueWords();
-//
-//        System.out.println();
-//        System.out.println("Word counts:");
-//        wc.printWordsCount();
+        System.out.println("1. Words count");
+        System.out.println("-----------------");
+
+        String[] words = {
+                "test", "root", "gas", "gun", "moreover", "task", "Lord", "crown", "dream",
+                "shadow", "root", "flame", "dream", "night", "light", "dream", "cost",
+                "falcon", "light", "shadow", "dream", "drama", "war", "tree", "pain"
+        };
+
+        WordsCalculator wc = new WordsCalculator(words);
+
+        System.out.println("There are " + wc.getUniqueWordsNumber() + " unique words:");
+        wc.printUniqueWords();
+
+        System.out.println();
+        System.out.println("Word counts:");
+        wc.printWordsCount();
+
+        System.out.println();
+        System.out.println("2. Phonebook");
+        System.out.println("-----------------");
 
         Phonebook pb = new Phonebook();
 
