@@ -22,20 +22,29 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String[] words = {
-                "test", "root", "gas", "gun", "moreover", "task", "Lord", "crown", "dream",
-                "shadow", "root", "flame", "dream", "night", "light", "dream", "cost",
-                "falcon", "light", "shadow", "dream", "drama", "war", "tree", "pain"
-        };
+//        String[] words = {
+//                "test", "root", "gas", "gun", "moreover", "task", "Lord", "crown", "dream",
+//                "shadow", "root", "flame", "dream", "night", "light", "dream", "cost",
+//                "falcon", "light", "shadow", "dream", "drama", "war", "tree", "pain"
+//        };
+//
+//        WordsCalculator wc = new WordsCalculator(words);
+//
+//        System.out.println("There are " + wc.getUniqueWordsNumber() + " unique words:");
+//        wc.printUniqueWords();
+//
+//        System.out.println();
+//        System.out.println("Word counts:");
+//        wc.printWordsCount();
 
-        WordsCalculator wc = new WordsCalculator(words);
+        Phonebook pb = new Phonebook();
 
-        System.out.println("There are " + wc.getUniqueWordsNumber() + " unique words:");
-        wc.printUniqueWords();
+        pb.add("Doe", "123");
+        pb.add("Seth", "124");
+        pb.add("Seth", "125");
+        System.out.println("Phones for Doe: " + pb.get("Doe"));
+        System.out.println("Phones for Seth: " + pb.get("Seth"));
 
-        System.out.println();
-        System.out.println("Word counts:");
-        wc.printWordsCount();
 
     }
 
