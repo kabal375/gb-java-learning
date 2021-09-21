@@ -1,0 +1,22 @@
+@startuml
+abstract class Fruit {
+-weight
+getWeight()
+}
+
+class Apple extends Fruit {
+    + weight = 1.0f
+}
+
+class Orange extends Fruit {
+    + weight = 1.5f
+}
+
+class Box {
+    -List<> fruits
+    +float getWeight()
+    +boolean compare(Box)
+    +emptyTo(Box)
+    +addFruits()
+}
+@enduml
