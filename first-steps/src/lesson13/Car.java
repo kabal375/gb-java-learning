@@ -1,11 +1,13 @@
 package lesson13;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 
 public class Car implements Runnable {
     private static int CARS_COUNT;
 
     private CyclicBarrier gettingReady;
+    private CountDownLatch finish;
 
     private Race race;
     private int speed;
@@ -16,13 +18,14 @@ public class Car implements Runnable {
     public int getSpeed() {
         return speed;
     }
-    public Car(Race race, int speed, CyclicBarrier gettingReady) {
+    public Car(Race race, int speed, CyclicBarrier gettingReady, CountDownLatch finish) {
         this.race = race;
         this.speed = speed;
         CARS_COUNT++;
         this.name = "Участник #" + CARS_COUNT;
 
         this.gettingReady = gettingReady;
+        this.finish = finish;
 
     }
     @Override
@@ -37,6 +40,11 @@ public class Car implements Runnable {
         }
         for (int i = 0; i < race.getStages().size(); i++) {
             race.getStages().get(i).go(this);
+        }
+        finish.countDown();
+        if (!Race.isFinished) {
+            Race.isFinished = true;
+            Race.raceWinner = this.name;
         }
     }
 }
