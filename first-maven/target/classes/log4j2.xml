@@ -1,0 +1,17 @@
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config"
+               name="First Logger Config"
+               packages="ru.gb.lesson14">
+    <Appenders>
+        <Console name="STDOUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"></PatternLayout>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="STDOUT"></AppenderRef>
+        </Root>
+
+    </Loggers>
+
+</Configuration>
