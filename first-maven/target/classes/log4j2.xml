@@ -15,3 +15,6 @@
     </Loggers>
 
 </Configuration>
+
+<!-- Примеры конфигов Appenders https://logging.apache.org/log4j/2.x/manual/appenders.html -->
+<!-- Примеры конфигов https://logging.apache.org/log4j/2.x/manual/configuration.html -->
