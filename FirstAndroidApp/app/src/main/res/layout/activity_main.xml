@@ -24,22 +24,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        style="@style/Widget.AppCompat.AutoCompleteTextView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="12"
         android:text="Some text here..." />
 
     <Button
+        android:id="@+id/switch_to_inputs_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="Click me!"
+        android:layout_gravity="center"
+        android:text="Click me to switch to inputs!"
         android:textSize="12sp" />
 
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="start"
         android:text="Really text here?"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -53,8 +54,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/teal_700"
+        android:checked="true"
         android:textOff="Something is disabled"
         android:textOn="Something is enabled" />
+
+    <CalendarView
+        android:id="@+id/calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:firstDayOfWeek="2" />
 
 
 </LinearLayout>
