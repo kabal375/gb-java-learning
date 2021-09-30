@@ -1,18 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:background="@color/black"
+        android:gravity="center"
+        android:text="Input text, press buttons"
+        android:textColor="@color/purple_200"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Some text here..." />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Click me!"
+        android:textSize="12sp" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Really text here?"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="and here.." />
+
+    <ToggleButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_700"
+        android:textOff="Something is disabled"
+        android:textOn="Something is enabled" />
+
+
+</LinearLayout>
