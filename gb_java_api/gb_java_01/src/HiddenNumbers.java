@@ -6,15 +6,11 @@ public class HiddenNumbers {
         System.out.println("В каждой части выражения одна из цифр может быть заменена на #");
         System.out.println("Например, '45# + #2 = 464', '2#2 - 1# = 222' или '15# + #50 = 3#1'");
         String str = SimpleCalc.getString();
-        System.out.println(str);
+//        System.out.println(str);
 
         int sign_code = findSign(str);
 
         String[] qwe = findParts(str, sign_code);
-
-        System.out.println(qwe[0]);
-        System.out.println(qwe[1]);
-        System.out.println(qwe[2]);
 
         findAnswers(qwe, sign_code);
 
@@ -99,24 +95,28 @@ public class HiddenNumbers {
                             strE = strE + arrE[1];
                     }
                     e = Integer.parseInt(strE);
-                    if (q + w == e)
-                        System.out.println(q + " + " + w + " = " + e);
+
+                    switch (sign_code) {
+
+                        case 1:
+                            if (q + w == e)
+                                System.out.println(q + " + " + w + " = " + e);
+                        case 2:
+                            if (q - w == e)
+                                System.out.println(q + " - " + w + " = " + e);
+                        case 3:
+                            if (q * w == e)
+                                System.out.println(q + " * " + w + " = " + e);
+                        case 4:
+                            if (q / w == e)
+                                System.out.println(q + " / " + w + " = " + e);
+                    }
+
+
                 }
             }
         }
 
     }
 }
-//        switch (sign_code) {
-//            case 0:
-//                System.out.println("Невозможно определить элементы выражения");
-//                break;
-//            case 1:
-//                secondPart = firstPart[0].split("\\+");
-//                System.out.println("Here!");
-//            case 2:
-//                secondPart = firstPart[0].split("-");
-//            case 3:
-//                secondPart = firstPart[0].split("\\*");
-//            case 4:
-//                secondPart = firstPart[0].split("/");
+
