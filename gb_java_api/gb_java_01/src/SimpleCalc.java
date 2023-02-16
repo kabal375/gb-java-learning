@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class SimpleCalc {
     public static void main(String[] args) {
 
-        System.out.println("Введите простое выражение из двух чисел с оперцией +, -, * или /");
+        System.out.println("Введите простое выражение из двух чисел с операцией +, -, * или /");
         System.out.println("Например, '45.4 + 12.1' или '112 / 4'");
         String str = getString();
 
