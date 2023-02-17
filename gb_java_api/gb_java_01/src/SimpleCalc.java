@@ -30,6 +30,7 @@ public class SimpleCalc {
             return Double.parseDouble(parts[0]) * Double.parseDouble(parts[1]);
         } else if (str.contains("/")) {
             String[] parts = str.split("/");
+            // TODO сделать проверку деления на 0
             return Double.parseDouble(parts[0]) / Double.parseDouble(parts[1]);
         } else {
             System.out.println("Недопустимое выражение");

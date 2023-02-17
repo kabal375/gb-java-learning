@@ -1,5 +1,6 @@
 public class HiddenNumbers {
-
+    // TODO проверку деления на 0, рефакторинг обработки неизвестных символов (replace instead of split),
+    // вывод сообщения об отсутствии решения
     public static void main(String[] args) {
 
         System.out.println("Введите простое выражение из двух чисел с операцией +, -, * или / и результатом (через =)");
