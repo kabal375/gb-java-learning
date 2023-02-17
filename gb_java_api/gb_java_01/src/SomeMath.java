@@ -13,6 +13,8 @@ public class SomeMath {
 
     public static int triangleNumber(int n) {
         // Вычислить n-ое треугольного число(сумма чисел от 1 до n)
+        if (n <= 0)
+            return 0;
         if (n == 1) {
             return n;
         } else {
@@ -22,6 +24,8 @@ public class SomeMath {
 
     public static int factorial(int n) {
         // n! (произведение чисел от 1 до n)
+        if (n <= 0)
+            return 1;
         if (n == 1) {
             return n;
         } else {
@@ -33,7 +37,7 @@ public class SomeMath {
         // Вывести простые числа от 1 до 1000
 
         ArrayList<Integer> simpleNumbers = new ArrayList<>();
-        for (int i = 0; i <= n; i++) {
+        for (int i = 2; i <= n; i++) {
             if (isItSimple(i)) simpleNumbers.add(i);
 
         }
