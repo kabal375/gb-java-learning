@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,10 +13,15 @@ public class ArrListsExamples {
         System.out.println("Initial array: " + list1);
         System.out.println("Merge sorted array: " + mergeSort(list1));
         System.out.println("Removed even numbers:" + removeEven(list1));
+        System.out.println("Maximum: " + Collections.max(list1));
+        System.out.println("Minimum: " + Collections.min(list1));
+        System.out.println("Average: " + findAverage(list1));
+
     }
 
+    //      1.Реализовать алгоритм сортировки слиянием
+
     public static ArrayList<Integer> mergeSort(ArrayList<Integer> initialArray) {
-        ArrayList<Integer> result;
 
         if (initialArray.size() <= 1)
             return initialArray;
@@ -23,17 +29,17 @@ public class ArrListsExamples {
             int middle = initialArray.size() / 2;
             ArrayList<Integer> leftHalf = new ArrayList<>(initialArray.subList(0, middle));
             ArrayList<Integer> rightHalf = new ArrayList<>(initialArray.subList(middle, initialArray.size()));
-            result = merge(mergeSort(leftHalf), mergeSort(rightHalf));
-            return  result;
+            return merge(mergeSort(leftHalf), mergeSort(rightHalf));
 
         }
     }
 
 
-    public static ArrayList<Integer> merge(ArrayList<Integer> firstPart, ArrayList<Integer> secondPart){
-        ArrayList<Integer> result = new ArrayList<>(firstPart.size() + secondPart.size());
+    public static ArrayList<Integer> merge(ArrayList<Integer> firstPart, ArrayList<Integer> secondPart) {
 
-        int fi = 0; int si = 0;
+        ArrayList<Integer> result = new ArrayList<>(firstPart.size() + secondPart.size());
+        int fi = 0;
+        int si = 0;
 
         while (fi < firstPart.size() && si < secondPart.size()) {
             if (firstPart.get(fi) <= secondPart.get(si)) {
@@ -58,6 +64,8 @@ public class ArrListsExamples {
 
     }
 
+    //      2.Пусть дан произвольный список целых чисел, удалить из него четные числа
+
     public static ArrayList<Integer> removeEven(ArrayList<Integer> initialArray) {
         ArrayList<Integer> resultArray = new ArrayList<>();
         Iterator<Integer> iterator = initialArray.iterator();
@@ -69,6 +77,16 @@ public class ArrListsExamples {
                 resultArray.add(n);
         }
         return resultArray;
+    }
+
+    //      3.Задан целочисленный список ArrayList. Найти минимальное, максимальное и среднее арифметическое этого списка.
+
+    public static double findAverage(ArrayList<Integer> arrayList) {
+        double sum = 0;
+        for (int n : arrayList) {
+            sum += n;
+        }
+        return sum / arrayList.size();
     }
 
 }
