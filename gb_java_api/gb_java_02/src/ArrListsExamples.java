@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ArrListsExamples {
@@ -10,6 +11,7 @@ public class ArrListsExamples {
         ArrayList<Integer> list1 = new ArrayList<>(List.of(1, 4, 11, 3, 8, 10, 2, 15, 19, 7, 5));
         System.out.println("Initial array: " + list1);
         System.out.println("Merge sorted array: " + mergeSort(list1));
+        System.out.println("Removed even numbers:" + removeEven(list1));
     }
 
     public static ArrayList<Integer> mergeSort(ArrayList<Integer> initialArray) {
@@ -54,6 +56,19 @@ public class ArrListsExamples {
 
         return result;
 
+    }
+
+    public static ArrayList<Integer> removeEven(ArrayList<Integer> initialArray) {
+        ArrayList<Integer> resultArray = new ArrayList<>();
+        Iterator<Integer> iterator = initialArray.iterator();
+        int n = 0;
+
+        while (iterator.hasNext()) {
+            n = iterator.next();
+            if (n % 2 != 0)
+                resultArray.add(n);
+        }
+        return resultArray;
     }
 
 }
