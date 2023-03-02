@@ -32,6 +32,12 @@ public class HomeWork5 {
 
         getNameCounts(arrNames);
 
+        int[] arr1 = {1, 4, 11, 3, 8, 10, 2, 15, 19, 7, 5};
+        System.out.println("Initial array: " + Arrays.toString(arr1));
+        HeapSort hs = new HeapSort();
+        hs.sort(arr1);
+        System.out.println("Heap sorted array: " + Arrays.toString(arr1));
+
     }
 
     public static void getNameCounts(String[] namesArray) {
