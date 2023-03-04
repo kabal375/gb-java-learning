@@ -20,13 +20,10 @@ public class ChoosingLaptop {
 
     public static void main(String[] args) {
 
-
         LaptopFilter laptopFilter = new LaptopFilter();
 
         for (int i = 0; i < 100; i++) {
-            laptopSet.add(new Laptop(generateRAMSize(laptopFilter.ramSizes), generateHDDSize(laptopFilter.hddSizes),
-                    generateOS(laptopFilter.osNames), generateColor(laptopFilter.colors),
-                    generateManufacturer(laptopFilter.manufacturers)));
+            laptopSet.add(new Laptop());  // Random laptop generation
         }
 
         System.out.println(laptopSet.size());
@@ -49,30 +46,33 @@ public class ChoosingLaptop {
             System.out.println("6 - Run Filter");
 
             try {
-                item = Integer.parseInt(scanner.next());
+                item = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
                 System.out.println("Incorrect input!!! Enter number 1-6");
             }
 
             switch (item) {
-                case 1 -> laptopFilter.add("ram", enterIntData(laptopFilter.ramSizes));
-                case 2 -> laptopFilter.add("hddSize", enterIntData(laptopFilter.hddSizes));
-                case 3 -> laptopFilter.add("os", enterStrData(laptopFilter.osNames));
-                case 4 -> laptopFilter.add("color", enterStrData(laptopFilter.colors));
-                case 5 -> laptopFilter.add("manufacturer", enterStrData(laptopFilter.manufacturers));
+                case 1 -> laptopFilter.add("ram", enterIntData(Laptop.ramSizes));
+                case 2 -> laptopFilter.add("hddSize", enterIntData(Laptop.hddSizes));
+                case 3 -> laptopFilter.add("os", enterStrData(Laptop.osNames));
+                case 4 -> laptopFilter.add("color", enterStrData(Laptop.colors));
+                case 5 -> laptopFilter.add("manufacturer", enterStrData(Laptop.manufacturers));
                 case 6 -> {
                     System.out.println(laptopFilter.filterSet);
                     showFiltered(laptopSet, laptopFilter);
                 }
             }
         }
+        scanner.close();
     }
 
     private static void showFiltered(Set<Laptop> laptops, LaptopFilter filter) {
+        Laptop sample = filter.getFilterSample();
+
         for (Laptop laptop :
                 laptops) {
-
-            System.out.println(laptop);
+            if (laptop.corresponds(sample))
+                System.out.println(laptop);
         }
     }
 
@@ -95,29 +95,6 @@ public class ChoosingLaptop {
         return data;
     }
 
-    public static int generateRAMSize(int[] ramSizes) {
-        Random rnd = new Random();
-        return ramSizes[rnd.nextInt(0, ramSizes.length)];
-    }
 
-    public static int generateHDDSize(int[] hddSizes) {
-        Random rnd = new Random();
-        return hddSizes[rnd.nextInt(0, hddSizes.length)];
-    }
-
-    public static String generateOS(String[] osNames) {
-        Random rnd = new Random();
-        return osNames[rnd.nextInt(0, osNames.length)];
-    }
-
-    public static String generateColor(String[] colors) {
-        Random rnd = new Random();
-        return colors[rnd.nextInt(0, colors.length)];
-    }
-
-    public static String generateManufacturer(String[] manufacturers) {
-        Random rnd = new Random();
-        return manufacturers[rnd.nextInt(0, manufacturers.length)];
-    }
 
 }
