@@ -2,7 +2,7 @@ package gb.inheritance.basics;
 
 public class Eggs extends Food {
 
-    int pieces;     // Количество в упаковке
+    protected int pieces;     // Количество в упаковке
 
     public Eggs(String name, double cost, int count, String unit, String expDate, int pieces) {
         super(name, cost, count, unit, expDate);

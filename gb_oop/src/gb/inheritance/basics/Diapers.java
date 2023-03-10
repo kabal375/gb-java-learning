@@ -1,10 +1,10 @@
 package gb.inheritance.basics;
 
 public class Diapers extends HygieneItem {
-    int size;
-    int minWeight;
-    int maxWeight;
-    int type;
+    protected int size;
+    protected int minWeight;
+    protected int maxWeight;
+    protected int type;
 
     public Diapers(String name, double cost, int count, String unit, int pieces,
                    int size, int minWeight, int maxWeight, int type) {

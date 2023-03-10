@@ -1,8 +1,8 @@
 package gb.inheritance.basics;
 
 public class ChildrenGoods extends Goods{
-    int minAge;                 // Минимальный возраст
-    boolean isHypoallergenic;   // Гипоаллергенность
+    protected int minAge;                 // Минимальный возраст
+    protected boolean isHypoallergenic;   // Гипоаллергенность
 
     public ChildrenGoods(String name, double cost, int count, String unit, int minAge, boolean isHypoallergenic) {
         super(name, cost, count, unit);

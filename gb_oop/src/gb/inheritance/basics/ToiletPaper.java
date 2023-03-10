@@ -2,7 +2,7 @@ package gb.inheritance.basics;
 
 public class ToiletPaper extends HygieneItem {
 
-    int layers;      // Количество слоёв
+    protected int layers;      // Количество слоёв
 
     public ToiletPaper(String name, double cost, int count, String unit, int pieces, int layers) {
         super(name, cost, count, unit, pieces);

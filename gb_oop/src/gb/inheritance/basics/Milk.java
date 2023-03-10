@@ -1,7 +1,7 @@
 package gb.inheritance.basics;
 
 public class Milk extends Drink {
-    double fatPercetage;
+    private double fatPercetage;
 
     public Milk(String name, double cost, int count, String unit, String expDate, double v, double fatPercetage) {
         super(name, cost, count, unit, expDate, v);
