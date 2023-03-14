@@ -1,0 +1,68 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Animal {
+height
+weight
+eyeColor
+info()
+sound()
+}
+abstract class WildAnimal {
+ habitat
+ time
+}
+abstract class Pet {
+name
+breed
+furColor
+birthday
+isVaccinated
+showCaress()
+}
+abstract class Bird {
+altitude
+}
+
+Animal <|-- WildAnimal
+Animal <|-- Pet
+Animal <|- Bird
+
+WildAnimal <|-- Tiger
+WildAnimal <|-- Wolf
+Pet <|-- Cat
+Pet <|-- Dog
+Bird <|-- Chicken
+Bird <|-- Stork
+Train <|-- Dog
+Fly <|-- Bird
+
+class Tiger {
+}
+class Cat {
+isFur
+}
+class Dog {
+isTrained
+train()
+}
+class Wolf {
+isChief
+}
+
+class Zoo {
+addAnimal()
+removeAnimal()
+animalInfo()
+makeAnimalSound()
+animalList()
+allSound()
+}
+
+interface Fly {
+fly()
+}
+interface Train {
+train()
+}
+@enduml
