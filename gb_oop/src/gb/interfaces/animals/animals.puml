@@ -23,7 +23,6 @@ showCaress()
 abstract class Bird {
 altitude
 }
-'interface Collection
 
 Animal <|-- WildAnimal
 Animal <|-- Pet
@@ -35,6 +34,8 @@ Pet <|-- Cat
 Pet <|-- Dog
 Bird <|-- Chicken
 Bird <|-- Stork
+Train <|-- Dog
+Fly <|-- Bird
 
 class Tiger {
 }
@@ -58,12 +59,6 @@ animalList()
 allSound()
 }
 
-
-'enum TimeUnit {
-'DAYS
-'HOURS
-'MINUTES
-'}
 interface Fly {
 fly()
 }
