@@ -6,9 +6,10 @@ public class Circle extends ClosedCurve implements Circumference {
 
     double r;
 
-    public Circle(double r) {
-        // TODO validate parameters
-        this.r = r;
+    public Circle(double r) throws InvalidArgsException {
+        if (Validate.isPositive(r))
+            this.r = r;
+        else throw new InvalidArgsException("Radius can't be less or equal 0");
     }
 
     @Override
