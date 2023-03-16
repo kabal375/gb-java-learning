@@ -1,13 +1,8 @@
 package gb.interfaces.figures;
 
-abstract class TwoDimFigure implements Area, Comparable {
+abstract class TwoDimFigure implements Area, Comparable<TwoDimFigure> {
     @Override
-    public int compareTo(Object o) {
-        if (this.getArea() > ((TwoDimFigure) o).getArea())
-            return 1;
-        else if (this.getArea() < ((TwoDimFigure) o).getArea())
-            return -1;
-        else
-            return 0;
+    public int compareTo(TwoDimFigure o) {
+        return Double.compare(this.getArea(), o.getArea());
     }
 }
