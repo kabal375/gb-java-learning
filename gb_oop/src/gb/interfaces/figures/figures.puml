@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class TwoDimFigure
+abstract class Polygon {
+double[] sides
+}
+abstract class ClosedCurve
+
+interface Perimeter {
+getPerimeter()
+}
+interface Circumference {
+getCircumference()
+}
+interface Area {
+getArea()
+}
+
+Area <|-- TwoDimFigure
+TwoDimFigure <|-- ClosedCurve
+TwoDimFigure <|-- Polygon
+Perimeter <|-- Polygon
+ClosedCurve <|-- Circle
+Circumference <|-- Circle
+Polygon <|-- Triangle
+Polygon <|-- Rectangle
+Rectangle <|-- Square
+
+
+
+class Circle {
+}
+class Triangle {
+}
+class Rectangle {
+}
+class Square {
+}
+
+
+@enduml
