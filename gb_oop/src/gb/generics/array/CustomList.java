@@ -117,18 +117,40 @@ public class CustomList<E> {
         return Arrays.toString(Arrays.copyOfRange(array, 0, size));
     }
 
-//    public Object min(){
-//        return Arrays.stream(array).min();
-//    }
-//
-//    public static <T extends Comparable<T>> T max(T a, T b) {
-//        if (a == null) {
-//            if (b == null) return a;
-//            else return b;
-//        }
-//        if (b == null)
-//            return a;
-//        return a.compareTo(b) > 0 ? a : b;
-//    }
+    public <E extends Comparable<E>> E min() {
+        E min = null;
+        if (size > 0)
+            min = (E) array[0];
+        if (size > 1)
+            for (int i = 1; i < size; i++) {
+            min = ArrayOps.min(min, (E) array[i]);
+
+        }
+        return min;
+    }
+
+    public <E extends Comparable<E>> E max() {
+        E max = null;
+        if (size > 0)
+            max = (E) array[0];
+        if (size > 1)
+            for (int i = 1; i < size; i++) {
+                max = ArrayOps.max(max, (E) array[i]);
+
+            }
+        return max;
+    }
+
+    public <E extends Comparable> void bubbleSort() {
+
+        try {
+            ArrayOps.bubbleSort((E[]) array);
+        } catch (ClassCastException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+    }
+
 
 }

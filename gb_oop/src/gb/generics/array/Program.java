@@ -24,11 +24,21 @@ public class Program {
         myList.addAt(1,"two");
         System.out.println(myList);
         System.out.println(myList.size());
+        System.out.println("Minimum: " + myList.min().toString());
+        System.out.println("Maximum: " + myList.max().toString());
+        System.out.println(myList.size());
+        myList.bubbleSort();
 
-        Integer[] arr = {1, 2, 3, 4};
-        CustomList<Integer> myList2 = new CustomList<>(arr);
+
+        Double[] arr = {1.5, 2.3, 3.0, 4.1, 5.0, 2.2};
+        CustomList<Double> myList2 = new CustomList<>(arr);
+        myList2.bubbleSort();
         System.out.println(myList2.size());
         System.out.println(myList2);
+
+        System.out.println("Minimum: " + myList2.min().toString());
+        System.out.println("Maximum: " + myList2.max().toString());
+
 
     }
 
