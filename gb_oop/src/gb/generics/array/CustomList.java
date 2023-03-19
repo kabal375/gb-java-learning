@@ -1,7 +1,6 @@
 package gb.generics.array;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Objects;
 
 
@@ -114,7 +113,7 @@ public class CustomList<E> {
         return Arrays.toString(Arrays.copyOfRange(array, 0, size));
     }
 
-    public <E extends Comparable<E>> E min() {
+    public <E extends Comparable<? super E>> E min() {
         E min = null;
         if (size > 0) min = (E) array[0];
         if (size > 1) for (int i = 1; i < size; i++) {
@@ -124,7 +123,7 @@ public class CustomList<E> {
         return min;
     }
 
-    public <E extends Comparable<E>> E max() {
+    public <E extends Comparable<? super E>> E max() {
         E max = null;
         if (size > 0) max = (E) array[0];
         if (size > 1) for (int i = 1; i < size; i++) {
@@ -134,20 +133,55 @@ public class CustomList<E> {
         return max;
     }
 
-    public <E extends Comparable> void bubbleSort() {
+    public <E extends Comparable<? super E>> void bubbleSort() {
 
         try {
             ArrayOps.bubbleSort((E[]) array);
         } catch (ClassCastException e) {
             System.out.println(e.getMessage());
         }
-
     }
+
+    public <E extends Comparable<? super E>> void insertionSort() {
+
+        try {
+            ArrayOps.insertionSort((E[]) array);
+        } catch (ClassCastException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+        public <E extends Comparable<? super E>> void selectionSort() {
+
+        try {
+            ArrayOps.selectionSort((E[]) array);
+        } catch (ClassCastException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     public <E extends Number> double sum() {
         double result = 0;
-        for (int i = 0; i < size; i++) {
-            result = result + (E) array[i].doubleValue();
+        try {
+            for (int i = 0; i < size; i++) {
+                result = result + ((E) array[i]).doubleValue();
+            }
+        } catch (ClassCastException e) {
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
+
+
+    public <E extends Number> double product() {  // Multiplying all the array members
+        double result = 1;
+        try {
+            for (int i = 0; i < size; i++) {
+                result = result * ((E) array[i]).doubleValue();
+            }
+        } catch (ClassCastException e) {
+            System.out.println(e.getMessage());
         }
         return result;
     }
