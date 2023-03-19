@@ -1,5 +1,7 @@
 package gb.generics.array;
+
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Objects;
 
 
@@ -41,19 +43,16 @@ public class CustomList<E> {
     }
 
     public boolean add(E e) {
-        if (array.length == size)
-            extendArray();
+        if (array.length == size) extendArray();
         array[size] = e;
         size++;
         return true;
     }
 
     public void addAt(int index, E e) {
-        if (array.length == size)
-            extendArray();
+        if (array.length == size) extendArray();
         int newSize = size + 1;
-        if (index < newSize)
-            System.arraycopy(array, index, array, index + 1, newSize - index);
+        if (index < newSize) System.arraycopy(array, index, array, index + 1, newSize - index);
         array[index] = e;
         size++;
     }
@@ -66,8 +65,7 @@ public class CustomList<E> {
 
     public int indexOf(E e) {
         for (int i = 0; i < array.length; i++) {
-            if (e.equals(array[i]))
-                return i;
+            if (e.equals(array[i])) return i;
         }
         return -1;
     }
@@ -78,8 +76,7 @@ public class CustomList<E> {
 
     private void removeElement(int index) {
         int newSize = size - 1;
-        if (index < newSize)
-            System.arraycopy(array, index + 1, array, index, newSize - index);
+        if (index < newSize) System.arraycopy(array, index + 1, array, index, newSize - index);
         array[newSize] = null;
         size = newSize;
     }
@@ -96,7 +93,7 @@ public class CustomList<E> {
         while (isFound) {
             isFound = false;
             for (int i = 0; i < size; i++) {
-                if (e.equals(array[i])){
+                if (e.equals(array[i])) {
                     isFound = true;
                     removeElement(i);
                     break;
@@ -119,10 +116,8 @@ public class CustomList<E> {
 
     public <E extends Comparable<E>> E min() {
         E min = null;
-        if (size > 0)
-            min = (E) array[0];
-        if (size > 1)
-            for (int i = 1; i < size; i++) {
+        if (size > 0) min = (E) array[0];
+        if (size > 1) for (int i = 1; i < size; i++) {
             min = ArrayOps.min(min, (E) array[i]);
 
         }
@@ -131,13 +126,11 @@ public class CustomList<E> {
 
     public <E extends Comparable<E>> E max() {
         E max = null;
-        if (size > 0)
-            max = (E) array[0];
-        if (size > 1)
-            for (int i = 1; i < size; i++) {
-                max = ArrayOps.max(max, (E) array[i]);
+        if (size > 0) max = (E) array[0];
+        if (size > 1) for (int i = 1; i < size; i++) {
+            max = ArrayOps.max(max, (E) array[i]);
 
-            }
+        }
         return max;
     }
 
@@ -149,7 +142,14 @@ public class CustomList<E> {
             System.out.println(e.getMessage());
         }
 
+    }
 
+    public <E extends Number> double sum() {
+        double result = 0;
+        for (int i = 0; i < size; i++) {
+            result = result + (E) array[i].doubleValue();
+        }
+        return result;
     }
 
 

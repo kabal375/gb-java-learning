@@ -20,8 +20,8 @@ public class Program {
         System.out.println(myList.size());
         System.out.println(myList.contains("66"));
         myList.removeAll("true");
-        myList.set(0,"one");
-        myList.addAt(1,"two");
+        myList.set(0, "one");
+        myList.addAt(1, "two");
         System.out.println(myList);
         System.out.println(myList.size());
         System.out.println("Minimum: " + myList.min().toString());
