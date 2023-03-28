@@ -1,9 +1,12 @@
 package notepad.ui;
 
+import java.util.Map;
+
 public interface NotepadUI {
 
-    void addNote();
+    String newNote();
 
-    void showNotes();
+    void showAllNotes(Map<Integer, String> records);
 
+    String getString(String message);
 }

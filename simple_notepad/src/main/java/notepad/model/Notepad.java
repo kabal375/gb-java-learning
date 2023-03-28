@@ -1,7 +1,9 @@
 package notepad.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Notepad {
 
@@ -11,12 +13,33 @@ public class Notepad {
         this.npData = new ArrayList<>();
     }
 
-    public String[] getAllNotes() {
-        String[] allNotes = new String[npData.size()];
-        return npData.toArray(allNotes);
+    public Map<Integer, String> getNotes() {
+        Map<Integer, String> results = new HashMap<>();
+        String note;
+        for (int i = 0; i < npData.size(); i++) {
+            note = npData.get(i);
+            results.put(i, note);
+            }
+        return results;
     }
 
     public void add(String note) {
         npData.add(note);
+    }
+
+    public void delete(int index) throws ArrayIndexOutOfBoundsException {
+        npData.remove(index);
+    }
+
+    public Map<Integer, String> find(String substring) {
+        Map<Integer, String> results = new HashMap<>();
+        String note;
+        for (int i = 0; i < npData.size(); i++) {
+            note = npData.get(i);
+            if (note.toLowerCase().contains(substring.toLowerCase())) {
+                results.put(i, note);
+            }
+        }
+        return results;
     }
 }
