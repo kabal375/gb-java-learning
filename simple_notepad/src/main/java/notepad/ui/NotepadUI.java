@@ -6,7 +6,9 @@ public interface NotepadUI {
 
     String newNote();
 
-    void showAllNotes(Map<Integer, String> records);
+    void showNotes(Map<Integer, String> records);
 
     String getString(String message);
+
+    void showMessage(String s);
 }

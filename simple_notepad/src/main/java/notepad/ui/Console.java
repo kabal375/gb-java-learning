@@ -1,14 +1,18 @@
 package notepad.ui;
 
+import notepad.presenter.Presenter;
+
 import java.util.Map;
 import java.util.Scanner;
 
 public class Console implements NotepadUI {
-    private Scanner scanner;
+    private final Scanner scanner;
+    private final Presenter presenter;
 
 
     public Console() {
         this.scanner = new Scanner(System.in);
+        this.presenter = new Presenter(this);
     }
 
     public String showMenu() {
@@ -17,6 +21,27 @@ public class Console implements NotepadUI {
         }
         System.out.print("Enter your choice: ");
         return scanner.nextLine();
+    }
+
+    public void init() {
+        int item;
+        while (true) {
+            item = -1;
+            try {
+                item = Integer.parseInt(showMenu());
+            } catch (NumberFormatException e) {
+                showMessage(e.getMessage());
+                showMessage("Incorrect input!!! Enter number 0-" + (Menu.menuMap.size() - 1));
+            }
+
+            switch (item) {
+                case 0 -> presenter.exitProgram();
+                case 1 -> presenter.showAllNotes();
+                case 2 -> presenter.newNote();
+                case 3 -> presenter.findNote();
+                case 4 -> presenter.deleteNote();
+            }
+        }
     }
 
     @Override
@@ -31,7 +56,7 @@ public class Console implements NotepadUI {
     }
 
     @Override
-    public void showAllNotes(Map<Integer, String> records) {
+    public void showNotes(Map<Integer, String> records) {
         for (Map.Entry<Integer, String> entry:
              records.entrySet()) {
             System.out.println(entry.getKey() + ": ----");
@@ -46,7 +71,7 @@ public class Console implements NotepadUI {
     }
 
 
-    public void printMessage(String message) {
+    public void showMessage(String message) {
         System.out.println(message);
     }
 

@@ -1,51 +1,45 @@
 package notepad.presenter;
 
 import notepad.model.Notepad;
-import notepad.ui.Console;
-import notepad.ui.Menu;
+import notepad.ui.NotepadUI;
 
 
 public class Presenter {
-    Console console;
-    Notepad notepad;
+    private final NotepadUI ui;
+    private final Notepad notepad;
 
-    public Presenter(Console console, Notepad notepad) {
-        this.console = console;
-        this.notepad = notepad;
+    public Presenter(NotepadUI ui) {
+        this.ui = ui;
+        this.notepad = new Notepad();
     }
 
-    public void init() {
-        int item = -1;
-        while (true) {
-            item = -1;
-            try {
-                item = Integer.parseInt(console.showMenu());
-            } catch (NumberFormatException e) {
-                console.printMessage(e.getMessage());
-                console.printMessage("Incorrect input!!! Enter number 0-" + (Menu.menuMap.size() - 1));
-            }
 
-            switch (item) {
-                case 0 -> System.exit(0);
-                case 1 -> console.showAllNotes(notepad.getNotes());
-                case 2 -> notepad.add(console.newNote());
-                case 3 -> console.showAllNotes(notepad.find(console.getString("Looking for: ")));
-                case 4 -> {
-                    try {
-                        int index = Integer.parseInt(console.getString("Enter index of the note to delete: "));
-                        notepad.delete(index);
-                        console.printMessage("Note " + index + " is deleted");
-                    } catch (NumberFormatException e) {
-                        console.printMessage("Incorrect input!!! Index should be a number!");
-                    } catch (IndexOutOfBoundsException e) {
-                        console.printMessage("Note with such index not found!");
-                    }
+    public void exitProgram() {
+        System.exit(0);
+    }
 
-                }
-//                case 6 -> {
-//                    System.out.println(laptopFilter.filterSet);
-//                    showFiltered(laptopSet, laptopFilter);
-            }
+    public void showAllNotes() {
+        ui.showNotes(notepad.getNotes());
+    }
+
+    public void newNote() {
+        notepad.add(ui.newNote());
+    }
+
+    public void findNote() {
+        ui.showNotes(notepad.find(ui.getString("Looking for: ")));
+    }
+
+    public void deleteNote() {
+        try {
+            int index = Integer.parseInt(ui.getString("Enter index of the note to delete: "));
+            notepad.delete(index);
+            ui.showMessage("Note " + index + " is deleted");
+        } catch (NumberFormatException e) {
+            ui.showMessage("Incorrect input!!! Index should be a number!");
+        } catch (IndexOutOfBoundsException e) {
+            ui.showMessage("Note with such index not found!");
         }
+
     }
 }
