@@ -20,7 +20,7 @@ public class Console implements NotepadUI {
             System.out.println(i + ": " + Menu.menuMap.get(i));
         }
         System.out.print("Enter your choice: ");
-        return scanner.nextLine();
+        return scanner.nextLine().strip();
     }
 
     public void init() {
@@ -34,13 +34,7 @@ public class Console implements NotepadUI {
                 showMessage("Incorrect input!!! Enter number 0-" + (Menu.menuMap.size() - 1));
             }
 
-            switch (item) {
-                case 0 -> presenter.exitProgram();
-                case 1 -> presenter.showAllNotes();
-                case 2 -> presenter.newNote();
-                case 3 -> presenter.findNote();
-                case 4 -> presenter.deleteNote();
-            }
+            Menu.runCommand(presenter, item);
         }
     }
 

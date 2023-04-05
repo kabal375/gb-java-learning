@@ -23,7 +23,9 @@ public class Presenter {
     }
 
     public void newNote() {
-        notepad.add(ui.newNote());
+        String title = ui.getString("Enter a title for new note: ");
+        String content = ui.newNote();
+        notepad.add(title, content);
     }
 
     public void findNote() {
