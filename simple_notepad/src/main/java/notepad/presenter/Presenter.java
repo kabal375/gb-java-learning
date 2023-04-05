@@ -2,9 +2,9 @@ package notepad.presenter;
 
 import notepad.model.Notepad;
 import notepad.ui.NotepadUI;
-
 import java.io.IOException;
 import java.util.logging.*;
+
 
 
 public class Presenter {
@@ -70,6 +70,7 @@ public class Presenter {
         } catch (IndexOutOfBoundsException e) {
             ui.showMessage("Note with such index not found!");
             logger.log(Level.WARNING, e.getMessage());
+
         }
 
     }
