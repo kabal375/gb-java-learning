@@ -37,27 +37,7 @@ public class Console implements NotepadUI {
             Menu.runCommand(presenter, item);
         }
     }
-
-    public void init() {
-        int item;
-        while (true) {
-            item = -1;
-            try {
-                item = Integer.parseInt(showMenu());
-            } catch (NumberFormatException e) {
-                showMessage(e.getMessage());
-                showMessage("Incorrect input!!! Enter number 0-" + (Menu.menuMap.size() - 1));
-            }
-
-            switch (item) {
-                case 0 -> presenter.exitProgram();
-                case 1 -> presenter.showAllNotes();
-                case 2 -> presenter.newNote();
-                case 3 -> presenter.findNote();
-                case 4 -> presenter.deleteNote();
-            }
-        }
-    }
+    
 
     @Override
     public String newNote() {
